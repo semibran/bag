@@ -1,0 +1,15 @@
+{
+  "name": "bag",
+  "version": "1.0.0",
+  "description": "Draw random items from a user-defined list",
+  "license": "MIT",
+  "author": "Brandon Semilla <semibran@gmail.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/semibran/bag.git"
+  },
+  "dependencies": {
+    "random": "github:semibran/random"
+  }
+}
