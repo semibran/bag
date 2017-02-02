@@ -1,22 +1,38 @@
 const Random = require('random')
 
 module.exports = function Bag(items, seed) {
+  // Create a copy of the original array before proceeding
+  items = items.slice()
 
   var contents = []
   var rng = Random(seed)
-
-  return {
+  var bag = {
     items, seed,
     contents, rng,
-    draw
+    draw, fill
   }
 
+  return bag
+
+  // Draw a random item from the bag
   function draw() {
     if (!contents.length)
-      contents.push(...rng.shuffle(items))
-    var index = rng.get(contents.length)
-    var item = contents[index]
-    contents.splice(index, 1)
-    return item
+      fill()
+    return contents.shift()
+  }
+
+  // Refill the bag to match `items.length`
+  function fill() {
+    var remaining
+    if (!contents.length)
+      remaining = items
+    else if (contents.length !== items.length) {
+      remaining = []
+      for (var item of items)
+        if (bag.indexOf(item) === -1)
+          remaining.push(item)
+    }
+    contents.push(...rng.shuffle(remaining))
+    return bag
   }
 }
