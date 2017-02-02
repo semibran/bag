@@ -1,7 +1,7 @@
 # bag
 > Draw random items from a user-defined list
 
-A rough implementation of the classic **Random Generator** system from Tetris.
+A rough implementation of the classic [**Random Generator**](http://tetris.wikia.com/wiki/Random_Generator) system from Tetris.
 
 ```javascript
 const Bag = require('bag')
@@ -15,7 +15,7 @@ for (var i = 0, max = 10; i < max; i++) {
 }
 ```
 
-Internally, each `Bag` instance has a `contents` array which turns out to be a shuffled version of the `items` initially passed. An item is taken from the bag each time `draw` is called. If the bag is empty, the items are reshuffled and "poured" into the bag. This process continues indefinitely as long as the user keeps drawing items from the bag.
+Internally, each `Bag` instance has a `contents` array which turns out to be a shuffled version of the `items` initially passed. An item is removed from the bag each time `draw` is called. Once the bag is empty, the items are reshuffled and "poured" back into the bag. This process continues indefinitely as long as items are drawn from the bag's contents.
 
 ## Installation
 ```sh
