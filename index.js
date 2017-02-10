@@ -29,7 +29,7 @@ module.exports = function Bag(items, seed) {
     else if (contents.length !== items.length) {
       remaining = []
       for (var item of items)
-        if (bag.indexOf(item) === -1)
+        if (contents.indexOf(item) === -1)
           remaining.push(item)
     }
     contents.push(...rng.shuffle(remaining))
